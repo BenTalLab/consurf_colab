@@ -537,7 +537,7 @@ def upload_PDB():
     # we get the PDB file
     while True:
 
-        PDB_uniprot = input("Do you have a PDB/uniprot ID? (Y/N) Please type 'Y' if you have an ID, and 'N' if you don't have an ID:\n")
+        PDB_uniprot = input("Do you have a PDB/uniprot ID? (Y/N) Please type 'Y' if you have an ID, and 'N' to upload your own structure file:\n")
         if PDB_uniprot.upper() == "Y":
 
             ID = input("Please enter your ID. If you have a uniprot ID, colab will fetch the structure from the alphafold database:\n")
@@ -3509,13 +3509,15 @@ REMARK 998   This file has been modified by ConSurf.
 REMARK 998   Publications: https://pubmed.ncbi.nlm.nih.gov/?term=consurf
 REMARK 998   https://consurf.tau.ac.il    https://consurfdb.tau.ac.il 
 REMARK 998   https://colab.research.google.com/drive/1PhDXX7k12oUsV6T_xkXC3Rm9R99e7tHz
-REMARK 998                                                                              
+REMARK 998       
+REMARK 998   Date job processed: %s
+REMARK 998                                                                  
 REMARK 998   B-factor/temperature values have been replaced by conservation grades
 REMARK 998   1.0 (variable) to 9.0 (conserved), or 10.0 when the MSA had insufficient
 REMARK 998   data for a reliable grade.
 REMARK 998                                                                                      
 REMARK 998   Chain %s was processed
-""" %(form['PDB_chain'])
+""" %(vars['date'], form['PDB_chain'])
 
     if vars['running_mode'] == "_mode_pdb_no_msa" or vars['running_mode'] == "_mode_no_pdb_no_msa":
         
